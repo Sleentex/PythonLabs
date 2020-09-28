@@ -1,22 +1,20 @@
-n, k = [int(x) for x in input().split()]
-numbers = [int(x) for x in input().split()]
+import collections
+num = int(input("Input count of candidates: "))
 
-nmin = min(numbers)
-nmax = max(numbers)
+dataDict = dict()
 
-intervalDown_min = nmin - k
-intervalDown_max = nmin + k
+for i in range(num):
+    name, point = [str(x) for x in input().split()]
+    if name in dataDict:
+        dataDict[name] += int(point)
+    else:
+        dataDict[name] = int(point)
 
-intervalUp_min = nmax - k
-intervalUp_max = nmax + k
+print("\nResult: ")
+dataRes = collections.OrderedDict(sorted(dataDict.items()))
 
-uniq = set()
-print(intervalUp_min, intervalUp_max)
-for x in range(intervalUp_min, intervalUp_max + 1):  
-    for y in range(intervalDown_min, intervalDown_max + 1) :
-        if y == 0: continue
-        if x // y: uniq.add(y)
+for key, value in dataRes.items():
+    print(key, value)
 
-print(uniq)
 
 
