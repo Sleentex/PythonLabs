@@ -4,7 +4,8 @@ print(a)
 
 for i in range(0, len(a)):
     if len(a[i]) % 2 != 0:
-        print(a[i][len(a[i]) // 2], end=" ")
+        midlen = len(a[i])//2  
+        print(a[i][:midlen] + a[i][midlen+1:] , end=" ")
 
 
  
