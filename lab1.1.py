@@ -6,7 +6,7 @@ def formula(x, a, k):
 print("Enter x a eps: ")
 x, a, eps = (float(v) for v in input().split())
 
-prev_sum, now_sum, k = formula(x, a, 0), formula(x, a, 1), 2
+prev_sum, now_sum, k = formula(x, a, 0), formula(x, a, 0) + formula(x, a, 1), 2
 
 while mt.fabs(now_sum - prev_sum) >= eps:
     prev_sum = now_sum
