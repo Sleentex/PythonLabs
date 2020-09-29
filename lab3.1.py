@@ -4,7 +4,7 @@ num = int(input("Input count of candidates: "))
 dataDict = dict()
 
 for i in range(num):
-    name, point = [str(x) for x in input().split()]
+    name, point = [x for x in input().split()]
     if name in dataDict:
         dataDict[name] += int(point)
     else:
