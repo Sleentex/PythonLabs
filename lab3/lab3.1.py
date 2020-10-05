@@ -1,4 +1,5 @@
 import collections
+
 num = int(input("Input count of candidates: "))
 
 dataDict = dict()
@@ -15,6 +16,3 @@ dataRes = collections.OrderedDict(sorted(dataDict.items()))
 
 for key, value in dataRes.items():
     print(key, value)
-
-
-
