@@ -1,10 +1,15 @@
 from datetime import datetime
 from bankCustomer import BankCustomer
 
-myFile = open('D:\\university\Python\lab4\data.txt', encoding='utf-8')
+import os 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+myFile = open(dir_path + '/' + 'data.txt', encoding='utf-8')
+
+
 customers = []
 
 for row in myFile:
+    print(row)
     data = row.split(';')
     customer = BankCustomer(data[0], data[1], data[2], datetime(year=int(data[3]), month=int(data[4]), day=int(data[5])), data[6], data[7], int(data[8]), data[9])
     customers.append(customer)
