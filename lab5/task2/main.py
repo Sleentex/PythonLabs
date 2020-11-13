@@ -6,14 +6,6 @@ FILENAME = DIR_PATH + '/' + 'bookFund.db'
 def getConnection():
     return sqlite3.connect(FILENAME)
 
-def deleteTable():
-    try:
-        with getConnection() as conn:
-            cursor = conn.cursor()
-            cursor.execute('DROP TABLE book_fund')
-    except Exception:
-        print('Table book_fund not found')
-
 def createTables():
     with getConnection() as conn:
         cursor = conn.cursor()
@@ -30,11 +22,22 @@ def createTables():
                 receipt_date        DATE
             )
         """)
-    
+
+
+def deleteTable():
+    try:
+        with getConnection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('DROP TABLE book_fund')
+    except Exception:
+        print('Table book_fund not found')
+
 
 def insertData():
     try:
         with getConnection() as conn:
+            print('----Insert data----')
+
             _id = None
             first_name = input('first_name: ')
             last_name = input('last_name: ')
@@ -51,6 +54,7 @@ def insertData():
             ))
     except Exception:
         print('Something went wrong')
+
 
 def showAllData():
     try:
