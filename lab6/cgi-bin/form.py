@@ -4,23 +4,20 @@ import cgi
 
 form = cgi.FieldStorage()
 
-#num1 = int(form.getfirst('firstNum', 5))
-#num2 = int(form.getfirst('secondNum', 5))
-
 num1 = form.getfirst('firstNum')
 num2 = form.getfirst('secondNum')
-
 res = ''
+
 if num1 is None or num2 is None:
     res = "Ви передали пусте поле"
 else:
     num1 = int(num1)
     num2 = int(num2)
+
     if min(num1, num2) == 0:
         res = 'Ділити на 0 не можна!'
     else:
         res = 'Результат: ' + str(max(num1, num2) / min(num1, num2))
-
 
 
 print('Content-type: text/html\n')
