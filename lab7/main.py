@@ -62,7 +62,7 @@ class Form:
 
     def result(self, value1, value2):
         if value2 == 0:
-            self.resultLabel['text'] = 'Ділення на нуль не підтримується'
+            self.resultLabel['text'] = 'Не можна ділити на 0'
             self.resultLabel['fg'] = 'red'
             return
 
